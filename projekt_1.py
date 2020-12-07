@@ -1,5 +1,5 @@
 '''
-author = MBaB71
+author = BlueQueen71
 '''
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer, 
