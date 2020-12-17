@@ -1,5 +1,5 @@
 '''
-author = MBaB71
+author = BlueQueen71
 '''
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer, 
@@ -54,7 +54,6 @@ if registrovani.get(prihlasovaci_jmeno) != heslo:
         sep="\n",
     )
     quit()
-
 else:
     print(ODDELOVAC)
 
@@ -67,11 +66,9 @@ rozdelit_text = text.split()
 
 slova = []
 
-while rozdelit_text:
-    slovo = rozdelit_text.pop()
+for slovo in rozdelit_text:
     slovo = slovo.strip(".,")
-    if slovo:
-        slova.append(slovo)
+    slova.append(slovo)
 
 print(f"Počet slov ve vybraném textu: {len(slova)}.")
 
@@ -82,23 +79,19 @@ cisla = 0
 cetnost_delek_slov = {}
 soucet_cisel = 0
 
-i = 0
+for slovicko in slova:
+    if slovicko.istitle():
+        zacina_velkym_pismem += 1
+    elif slovicko.isupper():
+        slova_psana_velkymi_pismeny += 1
+    elif slovicko.islower():
+        slova_psana_malymi_pismeny += 1
+    elif slovicko.isnumeric():
+        cisla += 1
+        soucet_cisel = soucet_cisel + float(slovicko)
 
-while i < len(slova):
-    if slova[i].istitle():
-        zacina_velkym_pismem = zacina_velkym_pismem + 1
-    elif slova[i].isupper():
-        slova_psana_velkymi_pismeny = slova_psana_velkymi_pismeny + 1
-    elif slova[i].islower():
-        slova_psana_malymi_pismeny = slova_psana_malymi_pismeny + 1
-    elif slova[i].isnumeric():
-        cisla = cisla + 1
-        soucet_cisel = soucet_cisel + float(slova[i])
-
-    delka = len(slova[i])
-    cetnost_delek_slov[delka] = cetnost_delek_slov.get(delka, 0) + 1
-
-    i = i + 1
+    lenght = len(slovicko)
+    cetnost_delek_slov[lenght] = cetnost_delek_slov.get(lenght, 0) + 1
 
 print(
     f"Počet slov začínajících velkým písmenem: {zacina_velkym_pismem}.",
@@ -110,19 +103,14 @@ print(
 )
 
 delka_slov = sorted(cetnost_delek_slov)
-i = 0
 
-while i < len(delka_slov):
+for i, delka in enumerate(delka_slov):
     delka = delka_slov[i]
     frekvence = cetnost_delek_slov[delka]
 
-    if len(str(delka)) == 1:
-        str_delka = " " + str(delka)
-    else:
-        str_delka = str(delka)
+    str_delka = " " + str(delka) if len(str(delka)) == 1 else str(delka)
 
     print(str_delka, "*" * frekvence, frekvence)
-    i = i + 1
 
 print(
     ODDELOVAC,
