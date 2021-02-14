@@ -1,7 +1,3 @@
-'''
-author = BlueQueen71
-'''
-
 import random
 
 def predstaveni():
