@@ -26,22 +26,22 @@ def spatny_vstup(inp):
     vysledek = False
 
     if not inp.isnumeric() or len(inp) != 4:
-        vysledek = True
+        vystup = True
 
     if inp.startswith("0"):
-        vysledek = True
+        vystup = True
 
     if len(set(inp)) != 4:
-        vysledek = True
+        vystup = True
 
-    if vysledek == True:
+    if vystup == True:
         print("""
         Please enter a whole 4-digit number.
         Please enter a number not repeating the digits.
         The number can't start with 0.
         """)
 
-    return vysledek
+    return vystup
 
 def pocitat_bulls_cows(inp, nahodne_cislo):
     bulls = cows = 0
