@@ -127,5 +127,6 @@ def main():
     lokace = get_locations_list()
     write_to_csv(lokace)
 
-main()
+if __name__ == "__main__":
+    main()
 
